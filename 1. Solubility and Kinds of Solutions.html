@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  
+  
+  <title> Quiz – 1. Solubility and Kinds of Solutions</title>
+  
+  
+  <style>
+    body{font-family:Arial, sans-serif;padding:20px;background:#121212;color:#f0f0f0;}
+    #logo{display:block;margin:0 auto 25px;max-width:180px;}
+    #name-container{background:#1e1e1e;padding:30px;border-radius:6px;max-width:420px;margin:0 auto;}
+    #name-container input{width:100%;padding:10px;margin:10px 0 15px;border:none;border-radius:4px;font-size:16px;}
+    #quiz-container{display:none;}
+    .question{border:1px solid #333;padding:15px;margin-bottom:20px;border-radius:5px;background:#1e1e1e;}
+    .question h3{margin:0 0 10px;}
+    .option-item { display: flex; align-items: center; gap: 8px; margin: 6px 0; padding: 6px 8px; border-radius: 4px; background: #2a2a2a; color: #ccc; cursor: pointer; }
+    .option-item input[type="radio"] { margin: 0; }
+    .submit-button,.toggle-button,.dontknow-button{margin-top:10px;padding:6px 12px;background:#007BFF;color:#fff;border:none;border-radius:4px;cursor:pointer;margin-right:5px;}
+    .solution{display:none;margin-top:10px;background:#2d2d2d;padding:10px;border-left:4px solid #28a745;}
+    #scorecard{background:#2d2d2d;padding:15px;border-radius:6px;margin-top:30px;display:none;}
+    #timer{font-weight:bold;color:#00ffcc;}
+    #studentPrintName{text-align:center;font-size:18px;font-weight:bold;margin-top:-15px;margin-bottom:5px;display:none;}
+    #examDateTime{text-align:center;font-size:14px;margin-bottom:20px;display:none;}
+    @media print {
+      body { background: #fff; color:#000; }
+      .submit-button, .dontknow-button, .toggle-button, #reportBtn, #reportModal { display:none !important; }
+      #name-container { display:none !important; }
+    }
+    #reportBtn { position: fixed; bottom: 20px; right: 20px; background: #ff4757; color: white; border: none; padding: 12px 18px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+    #reportModal { display: none; position: fixed; bottom: 80px; right: 20px; background: #1e1e1e; border: 1px solid #444; padding: 15px; border-radius: 8px; width: 260px; z-index: 1001; }
+    #reportModal textarea { width: 100%; height: 80px; padding: 8px; border: none; border-radius: 4px; resize: none; font-size: 14px; }
+    #reportModal button { margin-top: 10px; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    #sendReport { background: #28a745; color: white; }
+    #closeReport { background: #dc3545; color: white; margin-left: 5px; }
+  </style>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']], 
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true
+      },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<img id="logo" src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="Logo" />
+
+<div id="studentPrintName"></div>
+<div id="examDateTime"></div>
+
+<div id="name-container">
+  <h2>Enter your name to begin</h2>
+  <input type="text" id="studentNameInput" placeholder="Your Name" />
+  <button class="submit-button" onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<div id="quiz-container">
+
+
+  <h2> Quiz – 1. Solubility and Kinds of Solutions</h2>
+  
+  
+  <p><strong>Time Elapsed:</strong> <span id="timer">00:00</span></p>
+  <div id="questions-container"></div>
+
+  <div style="margin-top:30px;">
+    <button class="submit-button" onclick="finalSubmit()">Final Submit</button>
+    <button class="submit-button" onclick="printQuestions()">Print Questions</button>
+    <button class="submit-button" id="printScoreBtn" onclick="printScorecard()" style="display:none;">Save or Print Scorecard</button>
+    <button class="submit-button" id="shareWhatsappBtn" style="display:none;">SHARE on WhatsApp</button>
+  </div>
+
+ <div id="scorecard">
+  <h3>Your Scorecard</h3>
+  <p id="scoreText"></p>
+  <table id="scoreTable" border="1" cellspacing="0" cellpadding="6" style="width:100%;border-collapse:collapse;margin-top:15px;">
+    <thead style="background:#333;color:#fff;">
+      <tr>
+        <th>Q.No</th>
+        <th>Question</th>
+        <th>Your Answer</th>
+        <th>Correct Answer</th>
+        <th>Result</th>
+        <th>Solution</th>
+      </tr>
+    </thead>
+    <tbody id="scoreDetails"></tbody>
+  </table>
+</div>
+
+<button id="reportBtn">Report Mistake</button>
+
+<div id="reportModal">
+  <textarea id="reportMsg" placeholder="Describe the mistake..."></textarea>
+  <div style="text-align:right;">
+    <button id="sendReport">Send</button>
+    <button id="closeReport">Close</button>
+  </div>
+</div>
+
+<script>
+
+
+const Q = [
+  {
+    "id": "q1",
+    "question": "Which of the following correctly represents a saturated solution?",
+    "options": {
+      "A": "Solvent can still dissolve more solute at the given temperature.",
+      "B": "No solute is dissolved.",
+      "C": "Solute is in dynamic equilibrium with undissolved solute.",
+      "D": "All solute has precipitated out."
+    },
+    "answer": "C",
+    "solution": "A saturated solution contains undissolved solute in dynamic equilibrium with dissolved solute.",
+    "solution_steps": [
+      "Step 1: In saturated solutions, rate of dissolution = rate of crystallization.",
+      "Step 2: Equilibrium exists between dissolved and undissolved solute.",
+      "Step 3: Therefore option C is correct."
+    ]
+  },
+  {
+    "id": "q2",
+    "question": "The solubility of a gas in a liquid decreases with:",
+    "options": {
+      "A": "Increase in pressure",
+      "B": "Decrease in pressure",
+      "C": "Increase in temperature",
+      "D": "Decrease in temperature"
+    },
+    "answer": "C",
+    "solution": "Gaseous solubility typically decreases with increasing temperature because dissolution of gases is generally exothermic.",
+    "solution_steps": [
+      "Step 1: Dissolution of many gases in liquids is exothermic (releases heat).",
+      "Step 2: Raising temperature shifts equilibrium to favor gas escape (Le Chatelier's principle).",
+      "Step 3: Hence solubility decreases with increase in temperature."
+    ]
+  },
+  {
+    "id": "q3",
+    "question": "Which law gives the relation between solubility of a gas and its partial pressure?",
+    "options": {
+      "A": "Raoult’s law",
+      "B": "Henry’s law",
+      "C": "Dalton’s law",
+      "D": "Boyle’s law"
+    },
+    "answer": "B",
+    "solution": "Henry’s law states that at a constant temperature the solubility (or partial pressure) of a gas above a liquid is proportional to the mole fraction (or concentration) of the gas in the liquid: p = k_H · x_gas.",
+    "solution_steps": [
+      "Step 1: Henry's law: p_gas = k_H × x_gas (or p = k_H × C for concentration form).",
+      "Step 2: Thus solubility ∝ partial pressure of gas above the liquid.",
+      "Step 3: Therefore, Henry’s law is applicable."
+    ]
+  },
+  {
+    "id": "q4",
+    "question": "The solubility of KNO₃ in water increases with temperature because the dissolution is:",
+    "options": {
+      "A": "Endothermic",
+      "B": "Exothermic",
+      "C": "Athermal",
+      "D": "Reversible"
+    },
+    "answer": "A",
+    "solution": "Dissolution of KNO₃ is endothermic (absorbs heat), so increasing temperature increases solubility.",
+    "solution_steps": [
+      "Step 1: Endothermic dissolution absorbs heat from surroundings.",
+      "Step 2: Increasing temperature supplies more heat, favoring dissolution (Le Chatelier).",
+      "Step 3: Hence solubility increases."
+    ]
+  },
+  {
+    "id": "q5",
+    "question": "Which type of solution is formed when ethanol and water are mixed?",
+    "options": {
+      "A": "Gas in liquid",
+      "B": "Liquid in liquid",
+      "C": "Solid in liquid",
+      "D": "Liquid in gas"
+    },
+    "answer": "B",
+    "solution": "Ethanol and water are both liquids and form a homogeneous liquid–liquid solution (they are miscible).",
+    "solution_steps": [
+      "Step 1: Both components are liquids.",
+      "Step 2: They mix uniformly at the molecular level.",
+      "Step 3: Therefore the mixture is a liquid–liquid solution."
+    ]
+  },
+  {
+    "id": "q6",
+    "question": "Air is an example of which type of solution?",
+    "options": {
+      "A": "Gas in gas",
+      "B": "Gas in liquid",
+      "C": "Liquid in gas",
+      "D": "Solid in gas"
+    },
+    "answer": "A",
+    "solution": "Air is a homogeneous mixture of gases (N₂, O₂, CO₂, etc.), hence a gas-in-gas solution.",
+    "solution_steps": [
+      "Step 1: Major component (solvent) is N₂ (gas).",
+      "Step 2: Minor components (solutes) are O₂, CO₂, etc. (gases).",
+      "Step 3: All components are gases → gas–gas solution."
+    ]
+  },
+  {
+    "id": "q7",
+    "question": "When CO₂ is dissolved in water under pressure to make soda water, the solute and solvent respectively are:",
+    "options": {
+      "A": "CO₂ and H₂O",
+      "B": "H₂O and CO₂",
+      "C": "H₂O and Sugar",
+      "D": "Sugar and CO₂"
+    },
+    "answer": "A",
+    "solution": "CO₂ (gas) is dissolved in water (liquid). The dissolved species (minor component) is the solute: CO₂; the major component (solvent) is H₂O.",
+    "solution_steps": [
+      "Step 1: Solute = minor component (CO₂ gas).",
+      "Step 2: Solvent = major component (H₂O liquid).",
+      "Step 3: Therefore solute = CO₂ and solvent = H₂O."
+    ]
+  },
+  {
+    "id": "q8",
+    "question": "If 36 g of NaCl dissolves in 100 g of water at 25°C, what is the solubility of NaCl (in g per 100 g water)?",
+    "options": {
+      "A": "18 g",
+      "B": "36 g",
+      "C": "72 g",
+      "D": "54 g"
+    },
+    "answer": "B",
+    "solution": "Solubility expressed as g solute per 100 g solvent is given directly: 36 g per 100 g water.",
+    "solution_steps": [
+      "Step 1: Solubility (g per 100 g solvent) = mass of solute that dissolves in 100 g solvent.",
+      "Step 2: Given 36 g dissolves in 100 g water.",
+      "Step 3: Therefore solubility = 36 g per 100 g water."
+    ]
+  },
+  {
+    "id": "q9",
+    "question": "Which of the following is a heterogeneous solution?",
+    "options": {
+      "A": "Salt in water",
+      "B": "Sugar in water",
+      "C": "Oil in water",
+      "D": "Alcohol in water"
+    },
+    "answer": "C",
+    "solution": "Oil and water are immiscible and form a heterogeneous mixture of two layers (or an emulsion), not a homogeneous solution.",
+    "solution_steps": [
+      "Step 1: Miscible liquids form homogeneous solutions.",
+      "Step 2: Oil and water are immiscible due to differing polarity.",
+      "Step 3: Hence the mixture is heterogeneous."
+    ]
+  },
+  {
+    "id": "q10",
+    "question": "A solution containing 10 g of solute in 100 g of solvent is diluted by adding 100 g more of the same solvent. The concentration becomes:",
+    "options": {
+      "A": "Doubled",
+      "B": "Halved",
+      "C": "Tripled",
+      "D": "Unchanged"
+    },
+    "answer": "B",
+    "solution": "Initial concentration (by mass fraction) = 10/100 = 0.10. After adding equal solvent, total solvent = 200 g → concentration = 10/200 = 0.05; this is half the original.",
+    "solution_steps": [
+      "Step 1: Initial concentration = 10 g solute / 100 g solvent = 0.10 (mass fraction).",
+      "Step 2: After dilution: 10 g solute / 200 g solvent = 0.05.",
+      "Step 3: Concentration is halved."
+    ]
+  },
+  {
+    "id": "q11",
+    "question": "In which of the following cases will the solubility of a gas increase?",
+    "options": {
+      "A": "Increase in temperature and decrease in pressure",
+      "B": "Decrease in temperature and increase in pressure",
+      "C": "Increase in both temperature and pressure",
+      "D": "Decrease in both temperature and pressure"
+    },
+    "answer": "B",
+    "solution": "Gas solubility increases with decreasing temperature and with increasing pressure (Henry's law and Le Chatelier's principle for exothermic gas dissolution).",
+    "solution_steps": [
+      "Step 1: Lower temperature favors dissolution of gases (exothermic dissolution).",
+      "Step 2: Higher pressure increases gas solubility (Henry's law: solubility ∝ pressure).",
+      "Step 3: Therefore option B is correct."
+    ]
+  },
+  {
+    "id": "q12",
+    "question": "Which type of solution is formed when solid iodine dissolves in alcohol?",
+    "options": {
+      "A": "Solid in liquid",
+      "B": "Liquid in solid",
+      "C": "Gas in liquid",
+      "D": "Solid in gas"
+    },
+    "answer": "A",
+    "solution": "Solid iodine (I₂) dissolved in alcohol (liquid) is a solid–liquid solution.",
+    "solution_steps": [
+      "Step 1: Solute = solid (I₂).",
+      "Step 2: Solvent = liquid (alcohol).",
+      "Step 3: Hence solid-in-liquid solution."
+    ]
+  },
+  {
+    "id": "q13",
+    "question": "If 60 g of NaNO₃ is added to 100 g water at 20°C and 50 g dissolves while 10 g remains undissolved, the solution is:",
+    "options": {
+      "A": "Unsaturated",
+      "B": "Saturated",
+      "C": "Supersaturated",
+      "D": "Colloidal"
+    },
+    "answer": "B",
+    "solution": "Presence of undissolved solute (10 g) when some solute has dissolved indicates the solution has reached equilibrium at that temperature — i.e., it is saturated.",
+    "solution_steps": [
+      "Step 1: If more solute cannot dissolve at that temperature and undissolved solute is present, saturation is reached.",
+      "Step 2: Therefore the solution is saturated."
+    ]
+  },
+  {
+    "id": "q14",
+    "question": "When a saturated solution is heated, it generally becomes:",
+    "options": {
+      "A": "Unsaturated",
+      "B": "More saturated",
+      "C": "Supersaturated",
+      "D": "Colloidal"
+    },
+    "answer": "A",
+    "solution": "For many solid solutes, solubility increases with temperature; heating a saturated solution usually allows more solute to dissolve, making it unsaturated. (Note: a few salts are exceptions where solubility decreases with temperature.)",
+    "solution_steps": [
+      "Step 1: For typical solids, solubility increases with temperature.",
+      "Step 2: Heating gives the solution capacity to dissolve more solute.",
+      "Step 3: Thus a saturated solution generally becomes unsaturated on heating."
+    ]
+  },
+  {
+    "id": "q15",
+    "question": "Which factor does not affect solubility of a solid in a liquid?",
+    "options": {
+      "A": "Nature of solute and solvent",
+      "B": "Temperature",
+      "C": "Pressure",
+      "D": "Intermolecular interactions"
+    },
+    "answer": "C",
+    "solution": "Pressure has negligible effect on the solubility of solids in liquids (solids are nearly incompressible); temperature and intermolecular forces are the primary factors.",
+    "solution_steps": [
+      "Step 1: Solubility of solids is strongly influenced by temperature and intermolecular interactions.",
+      "Step 2: External pressure has negligible effect on solids dissolved in liquids.",
+      "Step 3: Hence option C is correct."
+    ]
+  }
+]
+
+;
+
+
+
+let student = '';
+let timerHandle;
+let printMode = '';
+let examDateTime = '';
+
+const quizTitle = document.title.split("Quiz")[1]?.trim() || document.title;
+
+function startQuiz() {
+  const name = document.getElementById('studentNameInput').value.trim();
+  if (!name) { alert('Please enter your name.'); return; }
+  student = name;
+  examDateTime = new Date().toLocaleString();
+  document.getElementById('name-container').style.display = 'none';
+  document.getElementById('quiz-container').style.display = 'block';
+  buildQuestions();
+  if (window.MathJax) MathJax.typesetPromise();
+  startTimer();
+}
+
+function buildQuestions() {
+  const out = document.getElementById('questions-container');
+  out.innerHTML = '';
+
+  Q.forEach((q, index) => {
+    const qText = q.text || q.question || q.prompt || ''; // tolerate different keys
+
+    // Normalize options into an ordered array of [letter, optionText]
+    let entries = [];
+    if (Array.isArray(q.options)) {
+      entries = q.options.map((opt, i) => [String.fromCharCode(65 + i), opt]);
+    } else if (q.options && typeof q.options === 'object') {
+      const keys = Object.keys(q.options);
+      const keysAreLetters = keys.every(k => /^[A-Z]$/.test(k));
+      if (keysAreLetters) {
+        keys.sort();
+        entries = keys.map(k => [k, q.options[k]]);
+      } else {
+        entries = keys.map((k, i) => [String.fromCharCode(65 + i), q.options[k]]);
+      }
+    }
+
+    const optionsHTML = entries.map(([letter, opt]) => {
+      return `<label class="option-item" for="${q.id}-${letter}">
+                <input type="radio" id="${q.id}-${letter}" name="${q.id}" value="${letter}" onchange="enableSubmit('${q.id}')">
+                ${letter}. ${opt}
+              </label>`;
+    }).join('');
+
+    const imageHTML = q.image ? `<div><img src="${q.image}" alt="figure" style="max-width:360px; margin:10px 0; display:block;"></div>` : '';
+
+    // Handle solution steps if they exist
+let solutionStepsHTML = '';
+if (q.solution_steps && Array.isArray(q.solution_steps) && q.solution_steps.length > 0) {
+  solutionStepsHTML = '<ul style="margin-top:10px;">' +
+    q.solution_steps.map(step => {
+      if (step.includes("\n")) {
+        return `<li><pre style="background:#111; padding:6px; border-radius:4px; overflow-x:auto;">${step}</pre></li>`;
+      }
+      return `<li>${step}</li>`;
+    }).join('') +
+    '</ul>';
+}
+
+
+    out.insertAdjacentHTML('beforeend', `
+      <div class="question" id="${q.id}-wrap">
+        <h3>Q${index + 1}. ${qText}</h3>
+        ${imageHTML}
+        <div class="options">${optionsHTML}</div>
+        <div id="${q.id}-buttons">
+          <button id="sub-${q.id}" class="submit-button" disabled onclick="grade('${q.id}')">Submit</button>
+          <button class="dontknow-button" onclick="skip('${q.id}')">I Don’t Know</button>
+        </div>
+        <button class="toggle-button" id="btn-sol-${q.id}" style="display:none;" onclick="toggleSolution('sol-${q.id}')">Show Solution</button>
+        <div class="solution" id="sol-${q.id}">
+          <strong>Solution:</strong> ${q.solution || ''} ${solutionStepsHTML}
+        </div>
+      </div>
+    `);
+  });
+
+  if (window.MathJax && typeof MathJax.typesetPromise === 'function') MathJax.typesetPromise();
+}
+
+
+
+function enableSubmit(qid) { document.getElementById(`sub-${qid}`).disabled = false; }
+
+function grade(qid) {
+  const q = Q.find(x => x.id === qid);
+  // accept different possible field names for the correct answer
+  const correct = q.correct || q.answer || q.key || q.correctAnswer;
+  const chosen = document.querySelector(`input[name="${qid}"]:checked`);
+  if (!chosen) return;
+
+  // lock options
+  document.querySelectorAll(`input[name="${qid}"]`).forEach(i => i.disabled = true);
+
+  // the chosen label
+  const chosenLabel = chosen.closest('label.option-item');
+
+  // find input that matches the correct letter
+  const correctInput = document.querySelector(`input[name="${qid}"][value="${correct}"]`);
+  const correctLabel = correctInput ? correctInput.closest('label.option-item') : null;
+
+  if (chosen.value === correct) {
+    // correct
+    if (chosenLabel) {
+      chosenLabel.style.background = '#28a745';
+      chosenLabel.style.color = '#fff';
+    }
+  } else {
+    // wrong: mark chosen red, mark correct green (if found)
+    if (chosenLabel) {
+      chosenLabel.style.background = '#dc3545';
+      chosenLabel.style.color = '#fff';
+    }
+    if (correctLabel) {
+      correctLabel.style.background = '#28a745';
+      correctLabel.style.color = '#fff';
+    }
+  }
+
+  // show solution immediately
+  const solElem = document.getElementById(`sol-${qid}`);
+  if (solElem) solElem.style.display = "block";
+
+  // hide the buttons for this question
+  const buttons = document.getElementById(`${qid}-buttons`);
+  if (buttons) buttons.style.display = "none";
+  const btnSol = document.getElementById(`btn-sol-${q.id}`);
+  if (btnSol) btnSol.style.display = "none";
+
+  // re-typeset MathJax for solution if it contains LaTeX
+  if (window.MathJax && typeof MathJax.typesetPromise === 'function') MathJax.typesetPromise();
+}
+
+
+function skip(qid) { document.querySelectorAll(`input[name="${qid}"]`).forEach(r => r.disabled = true); showSolutionButton(qid); }
+function showSolutionButton(qid) { document.getElementById(`btn-sol-${qid}`).style.display = 'inline-block'; document.getElementById(`${qid}-buttons`).style.display = 'none'; }
+function toggleSolution(id) { const elem = document.getElementById(id); elem.style.display = elem.style.display === 'block' ? 'none' : 'block'; }
+
+function startTimer() {
+  const display = document.getElementById('timer');
+  const started = Date.now();
+  timerHandle = setInterval(() => { const s = Math.floor((Date.now() - started) / 1000); display.textContent = `${String((s / 60) | 0).padStart(2,'0')}:${String(s % 60).padStart(2,'0')}`; }, 1000);
+}
+
+function finalSubmit() {
+  clearInterval(timerHandle);
+  document.querySelectorAll("input[type=radio]").forEach(r => r.disabled = true);
+  document.querySelectorAll(".submit-button, .dontknow-button").forEach(btn => btn.style.display = "none");
+
+  let totalMarks = 0;
+  let negativeMarks = 0;
+  let possibleMarks = Q.length * 4;
+  let detailHTML = '';
+
+  Q.forEach((q, index) => {
+    const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+    const chosen = checked ? checked.value : null;
+
+    const correctLetter = q.correct || q.answer || q.key || q.correctAnswer;
+
+    let marks = 0;
+    let resultText = "";
+
+    if (chosen === null) {
+      marks = 0;
+      resultText = "⚪ Not Attempted / I Don’t Know (0)";
+    } else if (chosen === correctLetter) {
+      marks = 4;
+      resultText = "✅ Correct (+4)";
+    } else {
+      marks = -1;
+      resultText = "❌ Incorrect (-1)";
+    }
+
+    totalMarks += marks > 0 ? marks : 0;
+    negativeMarks += marks < 0 ? marks : 0;
+
+    let solutionStepsHTML = '';
+    if (q.solution_steps && Array.isArray(q.solution_steps) && q.solution_steps.length > 0) {
+      solutionStepsHTML = '<ul style="margin-top:5px;">' +
+        q.solution_steps.map(step => `<li>${step}</li>`).join('') +
+        '</ul>';
+    }
+
+    detailHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${q.text || q.question}</td>
+        <td>${chosen || 'Not Answered'}</td>
+        <td>${correctLetter}</td>
+        <td>${resultText}</td>
+        <td>${q.solution || ''}${solutionStepsHTML}</td>
+        <td>${marks}</td>
+      </tr>`;
+  });
+
+  const finalScore = totalMarks + negativeMarks;
+
+  document.getElementById('scoreText').innerHTML = `${student}, here is your result:`;
+  document.getElementById('scoreDetails').innerHTML = detailHTML;
+
+  const summaryHTML = `
+    <div style="margin-top:20px; font-weight:bold;">
+      <p>Total Marks (Possible): ${possibleMarks}</p>
+      <p>Total Marks (Correct Answers): ${totalMarks}</p>
+      <p>Negative Marks (Wrong Answers): ${negativeMarks}</p>
+      <p>Final Score: ${finalScore}</p>
+    </div>
+  `;
+  document.getElementById('scorecard').insertAdjacentHTML('beforeend', summaryHTML);
+
+  document.getElementById('scorecard').style.display = 'block';
+  document.getElementById('printScoreBtn').style.display = 'inline-block';
+  document.getElementById('shareWhatsappBtn').style.display = 'inline-block';
+
+  if (window.MathJax && typeof MathJax.typesetPromise === 'function') MathJax.typesetPromise();
+}
+
+
+
+
+
+
+function printQuestions() { printMode = "questions"; window.print(); }
+function printScorecard() { document.getElementById("studentPrintName").innerText = student; document.getElementById("examDateTime").innerText = "Exam Date & Time: " + examDateTime; printMode = "scorecard"; window.print(); }
+
+window.addEventListener('beforeprint', () => {
+  if (printMode === "questions") { document.querySelector("#questions-container").style.display = "block"; document.querySelector("#scorecard").style.display = "none"; document.querySelector("#logo").style.display = "none"; document.querySelector("#name-container").style.display = "none"; document.querySelector("#timer").style.display = "none"; document.querySelector("#studentPrintName").style.display = "none"; document.querySelector("#examDateTime").style.display = "none"; }
+  if (printMode === "scorecard") { document.querySelector("#questions-container").style.display = "none"; document.querySelector("#scorecard").style.display = "block"; document.querySelector("#logo").style.display = "block"; document.querySelector("#name-container").style.display = "none"; document.querySelector("#studentPrintName").style.display = "block"; document.querySelector("#examDateTime").style.display = "block"; }
+});
+window.addEventListener('afterprint', () => { document.querySelector("#questions-container").style.display = ""; document.querySelector("#scorecard").style.display = ""; document.querySelector("#logo").style.display = ""; document.querySelector("#name-container").style.display = ""; document.querySelector("#timer").style.display = ""; document.querySelector("#studentPrintName").style.display = "none"; document.querySelector("#examDateTime").style.display = "none"; });
+
+
+
+
+document.getElementById("shareWhatsappBtn").addEventListener("click", function () {
+  const whatsappNumber = "9108069409455";
+
+  if (!student) {
+    alert("Please complete the quiz first.");
+    return;
+  }
+
+  const scoreText = document.getElementById('scoreText').innerText || "Result not available";
+
+  let totalMarks = 0;
+  let negativeMarks = 0;
+  let possibleMarks = Q.length * 4;
+
+  let details = "";
+
+  Q.forEach((q, i) => {
+    const qNum = i + 1;
+    const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+    let userAns = checked ? checked.value : null;
+    const correctAns = q.correct || q.answer || q.key || q.correctAnswer;
+
+    let marks = 0;
+    let resultText = "";
+
+    if (userAns === null) {
+      marks = 0;
+      resultText = "⚪ Not Attempted / I Don’t Know (0)";
+      userAns = "Not Answered";
+    } else if (userAns === correctAns) {
+      marks = 4;
+      resultText = "✅ Correct (+4)";
+    } else {
+      marks = -1;
+      resultText = "❌ Incorrect (-1)";
+    }
+
+    totalMarks += marks > 0 ? marks : 0;
+    negativeMarks += marks < 0 ? marks : 0;
+
+    details += `Q${qNum} → ${resultText} (Your Ans: ${userAns} | Correct: ${correctAns})\n`;
+  });
+
+  const finalScore = totalMarks + negativeMarks;
+
+  const message = `Sir, I have shared my Test Result for checking. Thank you!\n\n📘 Quiz Title: ${quizTitle}\n👤 Student: ${student}\n\n${scoreText}\n\n📊 Summary:\n✔ Total Marks (Possible): ${possibleMarks}\n✔ Total Marks (Correct Answers): ${totalMarks}\n✔ Negative Marks (Wrong Answers): ${negativeMarks}\n✔ Final Score: ${finalScore}\n\nDetails:\n${details}`;
+
+  const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(waUrl, "_blank");
+});
+
+
+const reportBtn = document.getElementById("reportBtn");
+const reportModal = document.getElementById("reportModal");
+const sendReport = document.getElementById("sendReport");
+const closeReport = document.getElementById("closeReport");
+const reportMsg = document.getElementById("reportMsg");
+
+reportBtn.onclick = () => { reportModal.style.display = "block"; };
+closeReport.onclick = () => { reportModal.style.display = "none"; reportMsg.value = ""; };
+sendReport.onclick = () => {
+  const msg = reportMsg.value.trim();
+  if (!msg) { alert("Please write your message before sending."); return; }
+  const whatsappNumber = "9108069409455";
+  const message = `⚠️ Reported Mistake\n\n📘 Quiz Title: ${quizTitle}\n👤 Student: ${student || "Anonymous"}\n\n📝 Message:\n${msg}`;
+  const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(waUrl, "_blank");
+  reportModal.style.display = "none";
+  reportMsg.value = "";
+};
+</script>
+
+</body>
+</html>
