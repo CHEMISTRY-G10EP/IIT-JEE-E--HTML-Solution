@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   
   
-  <title> Quiz – 2. Methods of Expressing Concentration of Solution(Percentage, w/w %, w/v %, v/v %, v/w %</title>
+  <title> 1. Solubility and Kinds of Solutions</title>
   
   
   <style>
@@ -34,6 +34,254 @@
     #reportModal button { margin-top: 10px; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
     #sendReport { background: #28a745; color: white; }
     #closeReport { background: #dc3545; color: white; margin-left: 5px; }
+  
+  /* ===== LOGIN PAGE ENHANCEMENTS ===== */
+
+#name-container {
+  background: linear-gradient(145deg, #1e1e1e, #161616);
+  padding: 35px;
+  border-radius: 12px;
+  max-width: 460px;
+  margin: 0 auto;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 4px;
+  font-size: 26px;
+  color: #00ffcc;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.instruction-box {
+  background: #111;
+  border-left: 4px solid #00ffcc;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.instruction-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #00ffcc;
+}
+
+.instruction-box ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.instruction-box li {
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+.input-label {
+  font-size: 14px;
+  color: #bbb;
+}
+
+#studentNameInput {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+#studentNameInput:focus {
+  outline: 2px solid #00ffcc;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #007BFF, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,123,255,0.4);
+}
+
+.login-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #ffbaba;
+  text-align: center;
+}
+
+  /* ===== PORTAL HEADER ===== */
+.portal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.portal-logo {
+  height: 55px;
+  width: auto;
+}
+
+.portal-text h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.portal-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 600px) {
+  .portal-header {
+    justify-content: flex-start;
+  }
+
+  .portal-logo {
+    height: 45px;
+  }
+
+  .portal-text h1 {
+    font-size: 20px;
+  }
+
+  .portal-text p {
+    font-size: 12px;
+  }
+}
+/* ===== MOBILE LOGIN BOX FIX ===== */
+@media (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+  #name-container {
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .portal-header {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .portal-logo {
+    height: 48px;
+  }
+
+  .portal-text h1 {
+    font-size: 21px;
+  }
+
+  .portal-text p {
+    font-size: 13px;
+  }
+
+  .instruction-box {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .instruction-box h3 {
+    font-size: 15px;
+  }
+
+  #studentNameInput {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .start-btn {
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .login-note {
+    font-size: 13px;
+  }
+}
+/* ===== GLOWING LOGO EFFECT ===== */
+.portal-logo {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.6))
+          drop-shadow(0 0 14px rgba(0, 255, 204, 0.45));
+  animation: logoGlow 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  from {
+    filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.5))
+            drop-shadow(0 0 12px rgba(0, 255, 204, 0.35));
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 204, 0.9))
+            drop-shadow(0 0 24px rgba(0, 255, 204, 0.6));
+  }
+}
+/* ===== WHATSAPP SHARE BUTTON (GREEN + YELLOW BORDER) ===== */
+#shareWhatsappBtn {
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #FFD700; /* Yellow border */
+  border-radius: 8px;
+  padding: 10px 16px;
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.25),
+    0 4px 14px rgba(37, 211, 102, 0.45);
+}
+
+#shareWhatsappBtn:hover {
+  background: linear-gradient(135deg, #1ebe5d, #25D366);
+  box-shadow:
+    0 0 0 3px rgba(255, 215, 0, 0.45),
+    0 6px 20px rgba(37, 211, 102, 0.6);
+  transform: translateY(-1px);
+}
+
+#shareWhatsappBtn:active {
+  transform: scale(0.97);
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  #shareWhatsappBtn {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
+
+
   </style>
 
   <!-- MathJax Configuration -->
@@ -51,21 +299,57 @@
 </head>
 <body>
 
-<img id="logo" src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="Logo" />
 
 <div id="studentPrintName"></div>
 <div id="examDateTime"></div>
 
 <div id="name-container">
-  <h2>Enter your name to begin</h2>
-  <input type="text" id="studentNameInput" placeholder="Your Name" />
-  <button class="submit-button" onclick="startQuiz()">Start Quiz</button>
+<div class="portal-header">
+  <img src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="G10 Logo" class="portal-logo">
+
+  <div class="portal-text">
+    <h1>Online Test Portal</h1>
+    <p>G10 Educational Platform</p>
+  </div>
 </div>
+
+
+  <div class="instruction-box">
+    <h3>📌 Instructions</h3>
+  <ul>
+  <li>Enter your <strong>full name</strong> as per school records.</li>
+  <li>Do <strong>not refresh</strong> the page during the test.</li>
+  <li>Each question carries <strong>+4 marks</strong>, wrong answer <strong>−1 mark</strong>.</li>
+  <li>Click <strong>Final Submit</strong> after completing the test.</li>
+  <li>
+    After submission, <strong>share the final result with your teacher</strong> by clicking the
+    <strong>“Share on WhatsApp”</strong> button.
+  </li>
+</ul>
+  </div>
+
+  <label for="studentNameInput" class="input-label">Student Name</label>
+  <input
+    type="text"
+    id="studentNameInput"
+    placeholder="e.g. Rahul Sharma"
+    autocomplete="off"
+  />
+
+  <button class="start-btn" onclick="startQuiz()">
+    ▶ Start Test
+  </button>
+
+  <p class="login-note">
+    ⚠ Once started, the test timer cannot be paused.
+  </p>
+</div>
+
 
 <div id="quiz-container">
 
 
-  <h2> Quiz –  2. Methods of Expressing Concentration of Solution(Percentage, w/w %, w/v %, v/v %, v/w %</h2>
+  <h2> 1. Solubility and Kinds of Solutions</h2>
   
   
   <p><strong>Time Elapsed:</strong> <span id="timer">00:00</span></p>
@@ -112,257 +396,256 @@
 const Q = [
   {
     "id": "q1",
-    "question": "Which of the following correctly represents weight percent (w/w%) concentration?",
+    "question": "Which of the following correctly represents a saturated solution?",
     "options": {
-      "A": "$(\\text{Mass of solute} / \\text{Mass of solvent}) \\times 100$",
-      "B": "$(\\text{Mass of solvent} / \\text{Mass of solute}) \\times 100$",
-      "C": "$(\\text{Mass of solute} / \\text{Mass of solution}) \\times 100$",
-      "D": "$(\\text{Mass of solution} / \\text{Mass of solute}) \\times 100$"
+      "A": "Solvent can still dissolve more solute at the given temperature.",
+      "B": "No solute is dissolved.",
+      "C": "Solute is in dynamic equilibrium with undissolved solute.",
+      "D": "All solute has precipitated out."
     },
     "answer": "C",
-    "solution": "Weight percent or w/w% = $(\\text{Mass of solute} / \\text{Mass of solution}) \\times 100$.",
+    "solution": "A saturated solution contains undissolved solute in dynamic equilibrium with dissolved solute.",
     "solution_steps": [
-      "Step 1: Define mass percent as ratio of solute to total solution mass.",
-      "Step 2: Use formula: $w/w\\% = \\frac{m_{solute}}{m_{solution}} \\times 100$.",
-      "Step 3: Hence, correct expression is option (C)."
+      "Step 1: In saturated solutions, rate of dissolution = rate of crystallization.",
+      "Step 2: Equilibrium exists between dissolved and undissolved solute.",
+      "Step 3: Therefore option C is correct."
     ]
   },
   {
     "id": "q2",
-    "question": "A solution contains 20 g of NaCl in 80 g of water. Calculate the weight percent (w/w%) of NaCl.",
+    "question": "The solubility of a gas in a liquid decreases with:",
     "options": {
-      "A": "20%",
-      "B": "25%",
-      "C": "22.5%",
-      "D": "18%"
+      "A": "Increase in pressure",
+      "B": "Decrease in pressure",
+      "C": "Increase in temperature",
+      "D": "Decrease in temperature"
     },
-    "answer": "B",
-    "solution": "w/w% = $\\frac{20}{20+80} \\times 100 = 25\\%$.",
+    "answer": "C",
+    "solution": "Gaseous solubility typically decreases with increasing temperature because dissolution of gases is generally exothermic.",
     "solution_steps": [
-      "Step 1: Mass of solute = 20 g, solvent = 80 g.",
-      "Step 2: Mass of solution = 100 g.",
-      "Step 3: $w/w\\% = (20/100) \\times 100 = 25\\%$."
+      "Step 1: Dissolution of many gases in liquids is exothermic (releases heat).",
+      "Step 2: Raising temperature shifts equilibrium to favor gas escape (Le Chatelier's principle).",
+      "Step 3: Hence solubility decreases with increase in temperature."
     ]
   },
   {
     "id": "q3",
-    "question": "Which unit is used in expressing weight/volume percent (w/v%) concentration?",
+    "question": "Which law gives the relation between solubility of a gas and its partial pressure?",
     "options": {
-      "A": "g per mL of solution",
-      "B": "mL per 100 mL of solution",
-      "C": "g per 100 mL of solution",
-      "D": "mL per 100 g of solution"
+      "A": "Raoult’s law",
+      "B": "Henry’s law",
+      "C": "Dalton’s law",
+      "D": "Boyle’s law"
     },
-    "answer": "C",
-    "solution": "w/v% = grams of solute per 100 mL of solution.",
+    "answer": "B",
+    "solution": "Henry’s law states that at a constant temperature the solubility (or partial pressure) of a gas above a liquid is proportional to the mole fraction (or concentration) of the gas in the liquid: p = k_H · x_gas.",
     "solution_steps": [
-      "Step 1: Definition — mass of solute in given volume of solution.",
-      "Step 2: By convention, expressed as g/100 mL.",
-      "Step 3: Hence correct unit: g per 100 mL of solution."
+      "Step 1: Henry's law: p_gas = k_H × x_gas (or p = k_H × C for concentration form).",
+      "Step 2: Thus solubility ∝ partial pressure of gas above the liquid.",
+      "Step 3: Therefore, Henry’s law is applicable."
     ]
   },
   {
     "id": "q4",
-    "question": "A 10% (w/v) NaOH solution contains:",
+    "question": "The solubility of KNO₃ in water increases with temperature because the dissolution is:",
     "options": {
-      "A": "10 g NaOH in 100 mL of solution",
-      "B": "10 g NaOH in 100 g of water",
-      "C": "10 mL NaOH in 100 mL of solution",
-      "D": "10 mL NaOH in 100 g of water"
+      "A": "Endothermic",
+      "B": "Exothermic",
+      "C": "Athermal",
+      "D": "Reversible"
     },
     "answer": "A",
-    "solution": "10% (w/v) = 10 g solute in 100 mL of solution.",
+    "solution": "Dissolution of KNO₃ is endothermic (absorbs heat), so increasing temperature increases solubility.",
     "solution_steps": [
-      "Step 1: In w/v %, numerator = mass of solute (g).",
-      "Step 2: Denominator = volume of solution (mL).",
-      "Step 3: Hence, 10 g NaOH per 100 mL solution."
+      "Step 1: Endothermic dissolution absorbs heat from surroundings.",
+      "Step 2: Increasing temperature supplies more heat, favoring dissolution (Le Chatelier).",
+      "Step 3: Hence solubility increases."
     ]
   },
   {
     "id": "q5",
-    "question": "Find the w/v% of a solution containing 5 g of glucose in 200 mL of solution.",
+    "question": "Which type of solution is formed when ethanol and water are mixed?",
     "options": {
-      "A": "1%",
-      "B": "2.5%",
-      "C": "5%",
-      "D": "10%"
+      "A": "Gas in liquid",
+      "B": "Liquid in liquid",
+      "C": "Solid in liquid",
+      "D": "Liquid in gas"
     },
     "answer": "B",
-    "solution": "$w/v\\% = \\frac{5}{200} \\times 100 = 2.5\\%$.",
+    "solution": "Ethanol and water are both liquids and form a homogeneous liquid–liquid solution (they are miscible).",
     "solution_steps": [
-      "Step 1: Substitute in formula $w/v\\% = (mass/volume) \\times 100$.",
-      "Step 2: $= (5/200) \\times 100$.",
-      "Step 3: $= 2.5\\%$."
+      "Step 1: Both components are liquids.",
+      "Step 2: They mix uniformly at the molecular level.",
+      "Step 3: Therefore the mixture is a liquid–liquid solution."
     ]
   },
   {
     "id": "q6",
-    "question": "Which formula represents volume/volume percent (v/v%)?",
+    "question": "Air is an example of which type of solution?",
     "options": {
-      "A": "$(\\text{Volume of solute} / \\text{Volume of solvent}) \\times 100$",
-      "B": "$(\\text{Volume of solute} / \\text{Volume of solution}) \\times 100$",
-      "C": "$(\\text{Volume of solution} / \\text{Volume of solute}) \\times 100$",
-      "D": "$(\\text{Mass of solute} / \\text{Volume of solvent}) \\times 100$"
+      "A": "Gas in gas",
+      "B": "Gas in liquid",
+      "C": "Liquid in gas",
+      "D": "Solid in gas"
     },
-    "answer": "B",
-    "solution": "v/v% = $(\\text{Volume of solute} / \\text{Volume of solution}) \\times 100$.",
+    "answer": "A",
+    "solution": "Air is a homogeneous mixture of gases (N₂, O₂, CO₂, etc.), hence a gas-in-gas solution.",
     "solution_steps": [
-      "Step 1: Use ratio of solute volume to total solution volume.",
-      "Step 2: Multiply by 100 to get percent.",
-      "Step 3: Hence, option (B)."
+      "Step 1: Major component (solvent) is N₂ (gas).",
+      "Step 2: Minor components (solutes) are O₂, CO₂, etc. (gases).",
+      "Step 3: All components are gases → gas–gas solution."
     ]
   },
   {
     "id": "q7",
-    "question": "A wine contains 12% (v/v) ethanol. This means:",
+    "question": "When CO₂ is dissolved in water under pressure to make soda water, the solute and solvent respectively are:",
     "options": {
-      "A": "12 mL ethanol in 100 mL of water",
-      "B": "12 mL ethanol in 100 mL of solution",
-      "C": "12 mL ethanol in 88 mL of water",
-      "D": "12 g ethanol in 100 mL of solution"
+      "A": "CO₂ and H₂O",
+      "B": "H₂O and CO₂",
+      "C": "H₂O and Sugar",
+      "D": "Sugar and CO₂"
     },
-    "answer": "B",
-    "solution": "12% (v/v) means 12 mL ethanol in 100 mL of total solution.",
+    "answer": "A",
+    "solution": "CO₂ (gas) is dissolved in water (liquid). The dissolved species (minor component) is the solute: CO₂; the major component (solvent) is H₂O.",
     "solution_steps": [
-      "Step 1: Definition: v/v% = (Volume solute / Volume solution) × 100.",
-      "Step 2: 12% v/v = 12 mL ethanol per 100 mL solution.",
-      "Step 3: Hence, correct interpretation is (B)."
+      "Step 1: Solute = minor component (CO₂ gas).",
+      "Step 2: Solvent = major component (H₂O liquid).",
+      "Step 3: Therefore solute = CO₂ and solvent = H₂O."
     ]
   },
   {
     "id": "q8",
-    "question": "A perfume solution has 5 mL of fragrance oil in 95 mL of alcohol. Find v/v%.",
+    "question": "If 36 g of NaCl dissolves in 100 g of water at 25°C, what is the solubility of NaCl (in g per 100 g water)?",
     "options": {
-      "A": "4.5%",
-      "B": "5%",
-      "C": "10%",
-      "D": "9.5%"
+      "A": "18 g",
+      "B": "36 g",
+      "C": "72 g",
+      "D": "54 g"
     },
     "answer": "B",
-    "solution": "$v/v\\% = \\frac{5}{100} \\times 100 = 5\\%$.",
+    "solution": "Solubility expressed as g solute per 100 g solvent is given directly: 36 g per 100 g water.",
     "solution_steps": [
-      "Step 1: Total volume = 5 + 95 = 100 mL.",
-      "Step 2: v/v% = (5/100) × 100.",
-      "Step 3: = 5%."
+      "Step 1: Solubility (g per 100 g solvent) = mass of solute that dissolves in 100 g solvent.",
+      "Step 2: Given 36 g dissolves in 100 g water.",
+      "Step 3: Therefore solubility = 36 g per 100 g water."
     ]
   },
   {
     "id": "q9",
-    "question": "Which expression represents volume/weight percent (v/w%)?",
+    "question": "Which of the following is a heterogeneous solution?",
     "options": {
-      "A": "$(\\text{Volume of solute} / \\text{Mass of solution}) \\times 100$",
-      "B": "$(\\text{Mass of solute} / \\text{Volume of solution}) \\times 100$",
-      "C": "$(\\text{Volume of solute} / \\text{Mass of solvent}) \\times 100$",
-      "D": "$(\\text{Volume of solute} / \\text{Mass of solvent + solute}) \\times 100$"
+      "A": "Salt in water",
+      "B": "Sugar in water",
+      "C": "Oil in water",
+      "D": "Alcohol in water"
     },
-    "answer": "A",
-    "solution": "v/w% = $(\\text{Volume of solute} / \\text{Mass of solution}) \\times 100$.",
+    "answer": "C",
+    "solution": "Oil and water are immiscible and form a heterogeneous mixture of two layers (or an emulsion), not a homogeneous solution.",
     "solution_steps": [
-      "Step 1: It compares volume of solute to total solution mass.",
-      "Step 2: Multiply by 100 for percentage.",
-      "Step 3: Correct form is option (A)."
+      "Step 1: Miscible liquids form homogeneous solutions.",
+      "Step 2: Oil and water are immiscible due to differing polarity.",
+      "Step 3: Hence the mixture is heterogeneous."
     ]
   },
   {
     "id": "q10",
-    "question": "A sample contains 25 mL of liquid solute dissolved in 200 g of solution. Calculate v/w%.",
+    "question": "A solution containing 10 g of solute in 100 g of solvent is diluted by adding 100 g more of the same solvent. The concentration becomes:",
     "options": {
-      "A": "10%",
-      "B": "12.5%",
-      "C": "5%",
-      "D": "15%"
+      "A": "Doubled",
+      "B": "Halved",
+      "C": "Tripled",
+      "D": "Unchanged"
     },
-    "answer": "C",
-    "solution": "$v/w\\% = \\frac{25}{200} \\times 100 = 12.5\\%$.",
+    "answer": "B",
+    "solution": "Initial concentration (by mass fraction) = 10/100 = 0.10. After adding equal solvent, total solvent = 200 g → concentration = 10/200 = 0.05; this is half the original.",
     "solution_steps": [
-      "Step 1: v/w% = (Volume solute / Mass solution) × 100.",
-      "Step 2: Substitute 25 and 200.",
-      "Step 3: = (25/200) × 100 = 12.5%."
+      "Step 1: Initial concentration = 10 g solute / 100 g solvent = 0.10 (mass fraction).",
+      "Step 2: After dilution: 10 g solute / 200 g solvent = 0.05.",
+      "Step 3: Concentration is halved."
     ]
   },
   {
     "id": "q11",
-    "question": "Which of the following methods is best for expressing concentration of liquid–liquid solutions?",
+    "question": "In which of the following cases will the solubility of a gas increase?",
     "options": {
-      "A": "w/w%",
-      "B": "v/v%",
-      "C": "w/v%",
-      "D": "v/w%"
+      "A": "Increase in temperature and decrease in pressure",
+      "B": "Decrease in temperature and increase in pressure",
+      "C": "Increase in both temperature and pressure",
+      "D": "Decrease in both temperature and pressure"
     },
     "answer": "B",
-    "solution": "v/v% is ideal when both solute and solvent are liquids.",
+    "solution": "Gas solubility increases with decreasing temperature and with increasing pressure (Henry's law and Le Chatelier's principle for exothermic gas dissolution).",
     "solution_steps": [
-      "Step 1: For liquids, both solute and solvent volumes are measurable.",
-      "Step 2: Hence v/v% is preferred.",
-      "Step 3: Option (B) is correct."
+      "Step 1: Lower temperature favors dissolution of gases (exothermic dissolution).",
+      "Step 2: Higher pressure increases gas solubility (Henry's law: solubility ∝ pressure).",
+      "Step 3: Therefore option B is correct."
     ]
   },
   {
     "id": "q12",
-    "question": "For solid–liquid solutions, which concentration unit is commonly used?",
+    "question": "Which type of solution is formed when solid iodine dissolves in alcohol?",
     "options": {
-      "A": "v/v%",
-      "B": "w/v%",
-      "C": "v/w%",
-      "D": "w/w%"
+      "A": "Solid in liquid",
+      "B": "Liquid in solid",
+      "C": "Gas in liquid",
+      "D": "Solid in gas"
     },
-    "answer": "B",
-    "solution": "Solid–liquid mixtures are expressed as w/v%.",
+    "answer": "A",
+    "solution": "Solid iodine (I₂) dissolved in alcohol (liquid) is a solid–liquid solution.",
     "solution_steps": [
-      "Step 1: Solute (solid) → mass, solvent (liquid) → volume.",
-      "Step 2: Thus w/v% is used.",
-      "Step 3: Example: saline = 0.9% w/v NaCl."
+      "Step 1: Solute = solid (I₂).",
+      "Step 2: Solvent = liquid (alcohol).",
+      "Step 3: Hence solid-in-liquid solution."
     ]
   },
   {
     "id": "q13",
-    "question": "A saline solution has 0.9 g NaCl per 100 mL of solution. Express it in w/v%.",
+    "question": "If 60 g of NaNO₃ is added to 100 g water at 20°C and 50 g dissolves while 10 g remains undissolved, the solution is:",
     "options": {
-      "A": "0.09%",
-      "B": "0.9%",
-      "C": "9%",
-      "D": "1%"
+      "A": "Unsaturated",
+      "B": "Saturated",
+      "C": "Supersaturated",
+      "D": "Colloidal"
     },
     "answer": "B",
-    "solution": "w/v% = $(0.9/100) \\times 100 = 0.9\\%$.",
+    "solution": "Presence of undissolved solute (10 g) when some solute has dissolved indicates the solution has reached equilibrium at that temperature — i.e., it is saturated.",
     "solution_steps": [
-      "Step 1: Substitute values in formula $w/v\\% = (m/V) \\times 100$.",
-      "Step 2: $= (0.9/100) \\times 100$.",
-      "Step 3: = 0.9%."
+      "Step 1: If more solute cannot dissolve at that temperature and undissolved solute is present, saturation is reached.",
+      "Step 2: Therefore the solution is saturated."
     ]
   },
   {
     "id": "q14",
-    "question": "A solution is prepared by dissolving 4 g of KNO₃ in 46 g of water. Calculate w/w%.",
+    "question": "When a saturated solution is heated, it generally becomes:",
     "options": {
-      "A": "8%",
-      "B": "7.5%",
-      "C": "9%",
-      "D": "10%"
+      "A": "Unsaturated",
+      "B": "More saturated",
+      "C": "Supersaturated",
+      "D": "Colloidal"
     },
     "answer": "A",
-    "solution": "$w/w\\% = \\frac{4}{4+46} \\times 100 = 8\\%$.",
+    "solution": "For many solid solutes, solubility increases with temperature; heating a saturated solution usually allows more solute to dissolve, making it unsaturated. (Note: a few salts are exceptions where solubility decreases with temperature.)",
     "solution_steps": [
-      "Step 1: Total solution mass = 50 g.",
-      "Step 2: $= (4/50) × 100$.",
-      "Step 3: = 8%."
+      "Step 1: For typical solids, solubility increases with temperature.",
+      "Step 2: Heating gives the solution capacity to dissolve more solute.",
+      "Step 3: Thus a saturated solution generally becomes unsaturated on heating."
     ]
   },
   {
     "id": "q15",
-    "question": "A cough syrup contains 10 mL of active ingredient per 200 g of solution. Calculate v/w%.",
+    "question": "Which factor does not affect solubility of a solid in a liquid?",
     "options": {
-      "A": "5%",
-      "B": "10%",
-      "C": "2%",
-      "D": "20%"
+      "A": "Nature of solute and solvent",
+      "B": "Temperature",
+      "C": "Pressure",
+      "D": "Intermolecular interactions"
     },
     "answer": "C",
-    "solution": "$v/w\\% = \\frac{10}{200} \\times 100 = 5\\%$.",
+    "solution": "Pressure has negligible effect on the solubility of solids in liquids (solids are nearly incompressible); temperature and intermolecular forces are the primary factors.",
     "solution_steps": [
-      "Step 1: Formula: v/w% = (Volume solute / Mass solution) × 100.",
-      "Step 2: Substitute 10 and 200.",
-      "Step 3: = (10/200) × 100 = 5%."
+      "Step 1: Solubility of solids is strongly influenced by temperature and intermolecular interactions.",
+      "Step 2: External pressure has negligible effect on solids dissolved in liquids.",
+      "Step 3: Hence option C is correct."
     ]
   }
 ]
@@ -396,6 +679,50 @@ function buildQuestions() {
 
   Q.forEach((q, index) => {
     const qText = q.text || q.question || q.prompt || ''; // tolerate different keys
+	
+	// Fill in the blank question
+if (q.type === "fill") {
+
+  const blanksHTML = q.blanks.map((b,i)=>`
+  <input type="text" 
+    data-q="${q.id}" 
+    data-i="${i}" 
+    class="fill-input"
+    placeholder="1"
+    style="width:60px;padding:4px;margin:4px;"
+    oninput="enableSubmit('${q.id}')">
+  ${b.replace("___","")}
+`).join(" + ");
+
+  out.insertAdjacentHTML('beforeend', `
+    <div class="question" id="${q.id}-wrap">
+      <h3>Q${index+1}. ${qText}</h3>
+
+      <div style="margin:10px 0;font-size:18px">
+        ${blanksHTML}
+      </div>
+
+      <div id="${q.id}-buttons">
+        <button id="sub-${q.id}" class="submit-button" disabled onclick="gradeFill('${q.id}')">Submit</button>
+        <button class="dontknow-button" onclick="skip('${q.id}')">I Don’t Know</button>
+      </div>
+
+      <button class="toggle-button" id="btn-sol-${q.id}" style="display:none;" onclick="toggleSolution('sol-${q.id}')">Show Solution</button>
+
+    <div class="solution" id="sol-${q.id}">
+  <strong>Solution:</strong> ${q.solution || ''}
+  ${
+    q.solution_steps && q.solution_steps.length
+      ? "<ul style='margin-top:8px;'>" +
+        q.solution_steps.map(s => `<li>${s}</li>`).join("") +
+        "</ul>"
+      : ""
+  }
+</div>
+  `);
+
+  return;
+}
 
     // Normalize options into an ordered array of [letter, optionText]
     let entries = [];
@@ -459,10 +786,28 @@ if (q.solution_steps && Array.isArray(q.solution_steps) && q.solution_steps.leng
 
 function enableSubmit(qid) { document.getElementById(`sub-${qid}`).disabled = false; }
 
+
+function getCorrectLetter(q) {
+  let ans = q.correct || q.answer || q.key || q.correctAnswer;
+
+  // If answer is a number like "2"
+  if (!isNaN(ans)) {
+    return String.fromCharCode(65 + Number(ans) - 1);
+  }
+
+  // If answer is already A/B/C/D
+  return ans;
+}
+
+
 function grade(qid) {
   const q = Q.find(x => x.id === qid);
   // accept different possible field names for the correct answer
-  const correct = q.correct || q.answer || q.key || q.correctAnswer;
+  
+  
+const correct = getCorrectLetter(q);
+
+
   const chosen = document.querySelector(`input[name="${qid}"]:checked`);
   if (!chosen) return;
 
@@ -509,6 +854,42 @@ function grade(qid) {
 }
 
 
+
+
+
+function gradeFill(qid){
+
+  const q = Q.find(x=>x.id===qid);
+
+  const inputs = document.querySelectorAll(`input[data-q="${qid}"]`);
+
+  let correct = true;
+
+  inputs.forEach((inp,i)=>{
+    let user = inp.value.trim();
+if(user === "") user = "1";
+    const ans = q.answer[i];
+
+    if(user === ans){
+      inp.style.background = "#28a745";
+      inp.style.color = "#fff";
+    }else{
+      inp.style.background = "#dc3545";
+      inp.style.color = "#fff";
+      correct = false;
+    }
+
+    inp.disabled = true;
+  });
+
+  document.getElementById(`${qid}-buttons`).style.display="none";
+
+  document.getElementById(`sol-${qid}`).style.display="block";
+}
+
+
+
+
 function skip(qid) { document.querySelectorAll(`input[name="${qid}"]`).forEach(r => r.disabled = true); showSolutionButton(qid); }
 function showSolutionButton(qid) { document.getElementById(`btn-sol-${qid}`).style.display = 'inline-block'; document.getElementById(`${qid}-buttons`).style.display = 'none'; }
 function toggleSolution(id) { const elem = document.getElementById(id); elem.style.display = elem.style.display === 'block' ? 'none' : 'block'; }
@@ -530,15 +911,43 @@ function finalSubmit() {
   let detailHTML = '';
 
   Q.forEach((q, index) => {
-    const checked = document.querySelector(`input[name="${q.id}"]:checked`);
-    const chosen = checked ? checked.value : null;
+ let chosen = null;
+let correctLetter = "";
 
-    const correctLetter = q.correct || q.answer || q.key || q.correctAnswer;
+// ===== Handle FILL questions =====
+if(q.type === "fill"){
+
+  const inputs = document.querySelectorAll(`input[data-q="${q.id}"]`);
+
+  let userAnswers = [];
+
+  inputs.forEach(inp=>{
+    let v = inp.value.trim();
+    if(v === "") v = "1";   // blank = coefficient 1
+    userAnswers.push(v);
+  });
+
+  chosen = userAnswers.join(",");
+
+  correctLetter = q.answer.join(",");
+
+}else{
+
+  // ===== Handle MCQ questions =====
+  const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+  chosen = checked ? checked.value : null;
+  correctLetter = getCorrectLetter(q);
+
+}
+	
+	
+	
+	
 
     let marks = 0;
     let resultText = "";
 
-    if (chosen === null) {
+if (chosen === null || chosen === "") {
       marks = 0;
       resultText = "⚪ Not Attempted / I Don’t Know (0)";
     } else if (chosen === correctLetter) {
@@ -611,7 +1020,7 @@ window.addEventListener('afterprint', () => { document.querySelector("#questions
 
 
 document.getElementById("shareWhatsappBtn").addEventListener("click", function () {
-  const whatsappNumber = "9108069409455";
+  const whatsappNumber = "916003582005";
 
   if (!student) {
     alert("Please complete the quiz first.");
@@ -630,7 +1039,14 @@ document.getElementById("shareWhatsappBtn").addEventListener("click", function (
     const qNum = i + 1;
     const checked = document.querySelector(`input[name="${q.id}"]:checked`);
     let userAns = checked ? checked.value : null;
-    const correctAns = q.correct || q.answer || q.key || q.correctAnswer;
+	
+	
+	
+	
+	
+const correctAns = getCorrectLetter(q);
+	
+	
 
     let marks = 0;
     let resultText = "";
@@ -673,7 +1089,7 @@ closeReport.onclick = () => { reportModal.style.display = "none"; reportMsg.valu
 sendReport.onclick = () => {
   const msg = reportMsg.value.trim();
   if (!msg) { alert("Please write your message before sending."); return; }
-  const whatsappNumber = "9108069409455";
+  const whatsappNumber = "916003582005";
   const message = `⚠️ Reported Mistake\n\n📘 Quiz Title: ${quizTitle}\n👤 Student: ${student || "Anonymous"}\n\n📝 Message:\n${msg}`;
   const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   window.open(waUrl, "_blank");
