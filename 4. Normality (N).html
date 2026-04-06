@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   
   
-  <title> Quiz – 4. Normality (N)</title>
+  <title> 4. Normality (N) </title>
   
   
   <style>
@@ -34,6 +34,254 @@
     #reportModal button { margin-top: 10px; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
     #sendReport { background: #28a745; color: white; }
     #closeReport { background: #dc3545; color: white; margin-left: 5px; }
+  
+  /* ===== LOGIN PAGE ENHANCEMENTS ===== */
+
+#name-container {
+  background: linear-gradient(145deg, #1e1e1e, #161616);
+  padding: 35px;
+  border-radius: 12px;
+  max-width: 460px;
+  margin: 0 auto;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 4px;
+  font-size: 26px;
+  color: #00ffcc;
+}
+
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.instruction-box {
+  background: #111;
+  border-left: 4px solid #00ffcc;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.instruction-box h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #00ffcc;
+}
+
+.instruction-box ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.instruction-box li {
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+.input-label {
+  font-size: 14px;
+  color: #bbb;
+}
+
+#studentNameInput {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+#studentNameInput:focus {
+  outline: 2px solid #00ffcc;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #007BFF, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,123,255,0.4);
+}
+
+.login-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #ffbaba;
+  text-align: center;
+}
+
+  /* ===== PORTAL HEADER ===== */
+.portal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.portal-logo {
+  height: 55px;
+  width: auto;
+}
+
+.portal-text h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.portal-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 600px) {
+  .portal-header {
+    justify-content: flex-start;
+  }
+
+  .portal-logo {
+    height: 45px;
+  }
+
+  .portal-text h1 {
+    font-size: 20px;
+  }
+
+  .portal-text p {
+    font-size: 12px;
+  }
+}
+/* ===== MOBILE LOGIN BOX FIX ===== */
+@media (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+  #name-container {
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .portal-header {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .portal-logo {
+    height: 48px;
+  }
+
+  .portal-text h1 {
+    font-size: 21px;
+  }
+
+  .portal-text p {
+    font-size: 13px;
+  }
+
+  .instruction-box {
+    font-size: 13px;
+    padding: 12px;
+  }
+
+  .instruction-box h3 {
+    font-size: 15px;
+  }
+
+  #studentNameInput {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .start-btn {
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .login-note {
+    font-size: 13px;
+  }
+}
+/* ===== GLOWING LOGO EFFECT ===== */
+.portal-logo {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.6))
+          drop-shadow(0 0 14px rgba(0, 255, 204, 0.45));
+  animation: logoGlow 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  from {
+    filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.5))
+            drop-shadow(0 0 12px rgba(0, 255, 204, 0.35));
+  }
+  to {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 204, 0.9))
+            drop-shadow(0 0 24px rgba(0, 255, 204, 0.6));
+  }
+}
+/* ===== WHATSAPP SHARE BUTTON (GREEN + YELLOW BORDER) ===== */
+#shareWhatsappBtn {
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #FFD700; /* Yellow border */
+  border-radius: 8px;
+  padding: 10px 16px;
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.25),
+    0 4px 14px rgba(37, 211, 102, 0.45);
+}
+
+#shareWhatsappBtn:hover {
+  background: linear-gradient(135deg, #1ebe5d, #25D366);
+  box-shadow:
+    0 0 0 3px rgba(255, 215, 0, 0.45),
+    0 6px 20px rgba(37, 211, 102, 0.6);
+  transform: translateY(-1px);
+}
+
+#shareWhatsappBtn:active {
+  transform: scale(0.97);
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  #shareWhatsappBtn {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}
+
+
   </style>
 
   <!-- MathJax Configuration -->
@@ -51,21 +299,57 @@
 </head>
 <body>
 
-<img id="logo" src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="Logo" />
 
 <div id="studentPrintName"></div>
 <div id="examDateTime"></div>
 
 <div id="name-container">
-  <h2>Enter your name to begin</h2>
-  <input type="text" id="studentNameInput" placeholder="Your Name" />
-  <button class="submit-button" onclick="startQuiz()">Start Quiz</button>
+<div class="portal-header">
+  <img src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="G10 Logo" class="portal-logo">
+
+  <div class="portal-text">
+    <h1>Online Test Portal</h1>
+    <p>G10 Educational Platform</p>
+  </div>
 </div>
+
+
+  <div class="instruction-box">
+    <h3>📌 Instructions</h3>
+  <ul>
+  <li>Enter your <strong>full name</strong> as per school records.</li>
+  <li>Do <strong>not refresh</strong> the page during the test.</li>
+  <li>Each question carries <strong>+4 marks</strong>, wrong answer <strong>−1 mark</strong>.</li>
+  <li>Click <strong>Final Submit</strong> after completing the test.</li>
+  <li>
+    After submission, <strong>share the final result with your teacher</strong> by clicking the
+    <strong>“Share on WhatsApp”</strong> button.
+  </li>
+</ul>
+  </div>
+
+  <label for="studentNameInput" class="input-label">Student Name</label>
+  <input
+    type="text"
+    id="studentNameInput"
+    placeholder="e.g. Rahul Sharma"
+    autocomplete="off"
+  />
+
+  <button class="start-btn" onclick="startQuiz()">
+    ▶ Start Test
+  </button>
+
+  <p class="login-note">
+    ⚠ Once started, the test timer cannot be paused.
+  </p>
+</div>
+
 
 <div id="quiz-container">
 
 
-  <h2> Quiz – 4. Normality (N)</h2>
+  <h2> 4. Normality (N)</h2>
   
   
   <p><strong>Time Elapsed:</strong> <span id="timer">00:00</span></p>
@@ -114,32 +398,32 @@ const Q = [
     "id": "q1",
     "question": "What is the unit of normality (N)?",
     "options": {
-      "A": "moles per litre (mol·L$^{-1}$)",
-      "B": "gram-equivalents per litre (eq·L$^{-1}$)",
-      "C": "grams per litre (g·L$^{-1}$)",
-      "D": "milliequivalents per litre (meq·L$^{-1}$)"
+      "A": "\\(\\text{mol} \\cdot \\text{L}^{-1}\\)",
+      "B": "\\(\\text{eq} \\cdot \\text{L}^{-1}\\)",
+      "C": "\\(\\text{g} \\cdot \\text{L}^{-1}\\)",
+      "D": "\\(\\text{meq} \\cdot \\text{L}^{-1}\\)"
     },
     "answer": "B",
-    "solution": "Normality is expressed as number of gram-equivalents of solute per litre of solution, i.e. eq·L$^{-1}$. (Definition)",
+    "solution": "Normality is \\(\\text{eq} \\cdot \\text{L}^{-1}\\).",
     "solution_steps": [
-      "Step 1: By definition normality measures equivalents per litre.",
-      "Step 2: Unit = gram-equivalents litre$^{-1}$ (eq·L$^{-1}$)."
+      "Step 1: Normality = equivalents per litre.",
+      "Step 2: Unit = \\(\\text{eq} \\cdot \\text{L}^{-1}\\)."
     ]
   },
   {
     "id": "q2",
     "question": "A 1 N solution means:",
     "options": {
-      "A": "1 mole of solute per litre",
-      "B": "1 gram of solute per litre",
-      "C": "1 gram-equivalent of solute per litre",
+      "A": "1 mole per litre",
+      "B": "1 gram per litre",
+      "C": "1 gram-equivalent per litre",
       "D": "1000 milliequivalents per litre"
     },
     "answer": "C",
-    "solution": "1 N = 1 gram-equivalent per litre. (Definition)",
+    "solution": "\\(1~\\text{N} = 1~\\text{eq} \\cdot \\text{L}^{-1}\\).",
     "solution_steps": [
-      "Step 1: Normality definition: eq·L$^{-1}$.",
-      "Step 2: 1 N = 1 gram-equivalent per litre."
+      "Step 1: Definition of N.",
+      "Step 2: \\(1~\\text{N} = 1~\\text{eq}/\\text{L}\\)."
     ]
   },
   {
@@ -152,15 +436,15 @@ const Q = [
       "D": "Milli-normal"
     },
     "answer": "A",
-    "solution": "Semi-normal = 0.5 N (nomenclature).",
+    "solution": "\\(0.5~\\text{N}\\) is called semi-normal.",
     "solution_steps": [
-      "Step 1: Standard prefixes: semi-normal = 0.5 N.",
-      "Step 2: Therefore option (A)."
+      "Step 1: Semi = half.",
+      "Step 2: \\(0.5~\\text{N}\\)."
     ]
   },
   {
     "id": "q4",
-    "question": "If 1 equivalent = 1000 milliequivalents (meq), what is the normality corresponding to 250 meq·L$^{-1}$?",
+    "question": "If \\(1~\\text{eq} = 1000~\\text{meq}\\), find normality of \\(250~\\text{meq} \\cdot \\text{L}^{-1}\\).",
     "options": {
       "A": "0.25 N",
       "B": "2.50 N",
@@ -168,31 +452,31 @@ const Q = [
       "D": "25 N"
     },
     "answer": "A",
-    "solution": "250 meq·L$^{-1}$ = 250/1000 = 0.250 eq·L$^{-1}$ = 0.25 N.",
+    "solution": "\\(\\frac{250}{1000} = 0.25~\\text{N}\\).",
     "solution_steps": [
-      "Step 1: Convert meq to eq: \\(250/1000 = 0.25\\) eq per L.",
-      "Step 2: Normality = eq·L$^{-1}$ = 0.25 N."
+      "Step 1: Convert meq to eq.",
+      "Step 2: \\(250/1000 = 0.25\\)."
     ]
   },
   {
     "id": "q5",
-    "question": "Equivalent weight of a dibasic acid H₂A (molar mass = 98 g·mol$^{-1}$) is:",
+    "question": "Equivalent weight of \\(\\mathrm{H_2A}\\) (98 g mol\\(^{-1}\\)):",
     "options": {
-      "A": "98 g·eq$^{-1}$",
-      "B": "49 g·eq$^{-1}$",
-      "C": "32.67 g·eq$^{-1}$",
-      "D": "196 g·eq$^{-1}$"
+      "A": "\\(98~\\text{g eq}^{-1}\\)",
+      "B": "\\(49~\\text{g eq}^{-1}\\)",
+      "C": "\\(32.67~\\text{g eq}^{-1}\\)",
+      "D": "\\(196~\\text{g eq}^{-1}\\)"
     },
     "answer": "B",
-    "solution": "Equivalent weight = molar mass / basicity = \\(98/2 = 49\\) g·eq$^{-1}$.",
+    "solution": "\\(\\frac{98}{2} = 49\\).",
     "solution_steps": [
-      "Step 1: For acid H₂A, equivalents per mole = 2.",
-      "Step 2: Equivalent weight = \\(98/2 = 49\\) g·eq$^{-1}$."
+      "Step 1: Basicity = 2.",
+      "Step 2: Divide molar mass."
     ]
   },
   {
     "id": "q6",
-    "question": "How many grams of a monoprotic acid (molar mass = 60 g·mol$^{-1}$) are required to prepare 1.0 L of 0.10 N solution?",
+    "question": "Mass required for \\(1.0~\\text{L}\\) of \\(0.10~\\text{N}\\) acid (60 g mol\\(^{-1}\\)):",
     "options": {
       "A": "6.0 g",
       "B": "0.60 g",
@@ -200,15 +484,15 @@ const Q = [
       "D": "0.06 g"
     },
     "answer": "A",
-    "solution": "Equivalent weight = 60 g·eq$^{-1}$. Using formula (mass = Eq.wt × N × V): \\(60 × 0.10 × 1.0 = 6.0\\) g.",
+    "solution": "\\(60 \\times 0.10 = 6.0\\).",
     "solution_steps": [
-      "Step 1: Eq.wt = 60 g·eq$^{-1}$ for monoprotic acid.",
-      "Step 2: Mass = \\(60 × 0.10 × 1.0 = 6.0\\) g."
+      "Step 1: Eq wt = 60.",
+      "Step 2: Multiply."
     ]
   },
   {
     "id": "q7",
-    "question": "A solution of H₂SO₄ is 1.0 M. What is its normality (N) for acid–base reactions?",
+    "question": "Normality of \\(1.0~\\text{M}\\) \\(\\mathrm{H_2SO_4}\\):",
     "options": {
       "A": "0.5 N",
       "B": "1.0 N",
@@ -216,15 +500,15 @@ const Q = [
       "D": "3.0 N"
     },
     "answer": "C",
-    "solution": "H₂SO₄ gives 2 H⁺ per mole. Normality = \\(M × n = 1.0 × 2 = 2.0\\) N.",
+    "solution": "\\(1.0 \\times 2 = 2.0~\\text{N}\\).",
     "solution_steps": [
-      "Step 1: \(n = 2\) for diprotic acid.",
-      "Step 2: \(N = M × n = 1.0 × 2 = 2.0\) N."
+      "Step 1: n = 2.",
+      "Step 2: Multiply."
     ]
   },
   {
     "id": "q8",
-    "question": "If 250 mL of 4.0 N HCl is diluted to 1.0 L, what is the new normality? (Use formula (viii) \\(N_1V_1 = N_2V_2\\))",
+    "question": "Dilution: 4.0 N (250 mL) → 1.0 L. New N?",
     "options": {
       "A": "1.0 N",
       "B": "2.0 N",
@@ -232,15 +516,15 @@ const Q = [
       "D": "16.0 N"
     },
     "answer": "A",
-    "solution": "Using (viii): \\(N_2 = N_1V_1/V_2 = 4.0×0.250/1.0 = 1.0\\) N.",
+    "solution": "\\(\\frac{4.0 \\times 0.250}{1.0} = 1.0\\).",
     "solution_steps": [
-      "Step 1: Apply \\(N_1V_1 = N_2V_2\\).",
-      "Step 2: Substitute and compute: \\(4.0×0.250/1.0 = 1.0\\) N."
+      "Step 1: \\(N_1V_1 = N_2V_2\\).",
+      "Step 2: Solve."
     ]
   },
   {
     "id": "q9",
-    "question": "Two HCl solutions (3.0 N, 200 mL) and (1.0 N, 300 mL) are mixed. Find the normality of the mixture. (Use formula (ix))",
+    "question": "Mix: (3.0 N, 200 mL) + (1.0 N, 300 mL). Find N.",
     "options": {
       "A": "1.8 N",
       "B": "2.0 N",
@@ -248,15 +532,15 @@ const Q = [
       "D": "0.8 N"
     },
     "answer": "A",
-    "solution": "Using (ix): \\(N_{mix} = (N_1V_1 + N_2V_2)/(V_1+V_2)\\). Substitution: \\((3×0.200 + 1×0.300)/(0.200+0.300) = 0.9/0.5 = 1.8\\) N.",
+    "solution": "\\(\\frac{0.6 + 0.3}{0.5} = 1.8\\).",
     "solution_steps": [
-      "Step 1: Compute numerator: 0.6 + 0.3 = 0.9.",
-      "Step 2: Divide by total volume 0.5 L ⇒ 1.8 N."
+      "Step 1: Calculate equivalents.",
+      "Step 2: Divide by total volume."
     ]
   },
   {
     "id": "q10",
-    "question": "100 mL of 5.0 N H₂SO₄ is diluted to 1.0 N. How much water should be added? (Use (x))",
+    "question": "100 mL of 5.0 N diluted to 1.0 N. Water added?",
     "options": {
       "A": "400 mL",
       "B": "100 mL",
@@ -264,15 +548,15 @@ const Q = [
       "D": "800 mL"
     },
     "answer": "A",
-    "solution": "From (viii): \\(N_1V_1 = N_2V_2\\). \\(V_2 = (5.0×0.100)/1.0 = 0.500\\) L = 500 mL. Water to add = 500 − 100 = 400 mL.",
+    "solution": "Final = 500 mL → add 400 mL.",
     "solution_steps": [
-      "Step 1: \\(V_2 = (5.0×0.100)/1.0 = 0.500\\) L.",
-      "Step 2: Water to add = 500 − 100 = 400 mL."
+      "Step 1: Find final volume.",
+      "Step 2: Subtract initial."
     ]
   },
   {
     "id": "q11",
-    "question": "25 mL of 0.20 N acid neutralises 50 mL of base. Find normality of the base. (Use (xi))",
+    "question": "25 mL of 0.20 N acid neutralises 50 mL base. Find N.",
     "options": {
       "A": "0.10 N",
       "B": "0.25 N",
@@ -280,15 +564,15 @@ const Q = [
       "D": "0.20 N"
     },
     "answer": "A",
-    "solution": "Using (xi): \\(N_1V_1 = N_2V_2\\). \\(N_2 = (0.20×25)/(50) = 5/50 = 0.10\\) N.",
+    "solution": "\\(\\frac{0.20 \\times 25}{50} = 0.10\\).",
     "solution_steps": [
-      "Step 1: Substitute values: \\(N_2 = (0.20×25)/(50)\\).",
-      "Step 2: \(= 0.10\\) N."
+      "Step 1: Apply formula.",
+      "Step 2: Solve."
     ]
   },
   {
     "id": "q12",
-    "question": "100 mL of 0.5 N acid is mixed with 150 mL of 0.2 N base. Determine resulting normality and nature. (Use (xii))",
+    "question": "Mix acid (0.5 N, 100 mL) & base (0.2 N, 150 mL). Nature?",
     "options": {
       "A": "Neutral; 0.30 N",
       "B": "Acidic; 0.08 N",
@@ -296,15 +580,15 @@ const Q = [
       "D": "Acidic; 0.20 N"
     },
     "answer": "B",
-    "solution": "Eq(acid)=0.5×0.100=0.050; Eq(base)=0.2×0.150=0.030; excess acid eq=0.020; total V=0.250 L; N=0.020/0.250=0.08 N → acidic.",
+    "solution": "Excess acid → 0.08 N.",
     "solution_steps": [
-      "Step 1: \(E_{acid}=0.050\), \(E_{base}=0.030\).",
-      "Step 2: \(N=0.020/0.250=0.08\\) N (acidic)."
+      "Step 1: Compare equivalents.",
+      "Step 2: Find excess."
     ]
   },
   {
     "id": "q13",
-    "question": "How many grams of Na₂CO₃ (M = 106 g·mol$^{-1}$, basicity = 2) are needed to prepare 500 mL of 0.2 N solution?",
+    "question": "Mass of \\(\\mathrm{Na_2CO_3}\\) for 0.2 N (500 mL):",
     "options": {
       "A": "21.2 g",
       "B": "10.6 g",
@@ -312,15 +596,15 @@ const Q = [
       "D": "42.4 g"
     },
     "answer": "C",
-    "solution": "Eq.wt = 106/2 = 53.0 g·eq$^{-1}$. Mass = 53.0×0.2×0.5 = 5.3 g.",
+    "solution": "\\(53 \\times 0.2 \\times 0.5 = 5.3\\).",
     "solution_steps": [
-      "Step 1: Eq.wt = 53.0 g·eq$^{-1}$.",
-      "Step 2: Mass = 53.0×0.2×0.5 = 5.3 g."
+      "Step 1: Eq wt = 53.",
+      "Step 2: Multiply."
     ]
   },
   {
     "id": "q14",
-    "question": "A 1.5 N acid solution is diluted three times. What is the new normality?",
+    "question": "1.5 N diluted 3 times. New N?",
     "options": {
       "A": "0.50 N",
       "B": "4.5 N",
@@ -328,47 +612,47 @@ const Q = [
       "D": "0.75 N"
     },
     "answer": "A",
-    "solution": "Normality inversely ∝ dilution factor: \\(N_2 = N_1/3 = 1.5/3 = 0.50\\) N. (Uses (viii)).",
+    "solution": "\\(\\frac{1.5}{3} = 0.5\\).",
     "solution_steps": [
-      "Step 1: \(V_2 = 3V_1 ⇒ N_2 = N_1/3\\).",
-      "Step 2: \(N_2=1.5/3=0.50\\) N."
+      "Step 1: Divide.",
+      "Step 2: Answer."
     ]
   },
   {
     "id": "q15",
-    "question": "A 2 N solution means:",
+    "question": "2 N solution means:",
     "options": {
-      "A": "2 moles per litre",
-      "B": "2 gram-equivalents per litre",
-      "C": "2 grams per litre",
-      "D": "2 milliequivalents per litre"
+      "A": "2 moles/L",
+      "B": "2 eq/L",
+      "C": "2 g/L",
+      "D": "2 meq/L"
     },
     "answer": "B",
-    "solution": "By definition: 2 N = 2 eq·L$^{-1}$.",
+    "solution": "\\(2~\\text{eq} \\cdot \\text{L}^{-1}\\).",
     "solution_steps": [
-      "Step 1: Normality = eq·L$^{-1}$.",
-      "Step 2: 2 N = 2 gram-equivalents per litre."
+      "Step 1: Definition.",
+      "Step 2: Answer."
     ]
   },
   {
     "id": "q16",
-    "question": "40 mL of 0.10 N HCl is mixed with 60 mL of 0.05 N NaOH. Find normality and nature. (Use (xii))",
+    "question": "Mix: 0.10 N HCl (40 mL) + 0.05 N NaOH (60 mL).",
     "options": {
       "A": "Acidic; 0.01 N",
       "B": "Basic; 0.01 N",
-      "C": "Neutral; 0.00 N",
+      "C": "Neutral",
       "D": "Acidic; 0.02 N"
     },
     "answer": "A",
-    "solution": "Eq(acid)=0.10×0.040=0.0040; Eq(base)=0.05×0.060=0.0030; net acid=0.0010; total V=0.100 L; N=0.0010/0.100=0.01 N (acidic).",
+    "solution": "Excess acid = 0.01 N.",
     "solution_steps": [
-      "Step 1: \(E_{acid}=0.0040, E_{base}=0.0030\\).",
-      "Step 2: \(N=0.0010/0.100=0.01\\) N → acidic."
+      "Step 1: Compare eq.",
+      "Step 2: Find net."
     ]
   },
   {
     "id": "q17",
-    "question": "A 0.25 N solution contains how many meq·L$^{-1}$?",
+    "question": "0.25 N equals how many meq/L?",
     "options": {
       "A": "0.25",
       "B": "25",
@@ -376,15 +660,15 @@ const Q = [
       "D": "2500"
     },
     "answer": "C",
-    "solution": "1 N = 1000 meq·L$^{-1}$. Therefore 0.25 N = 250 meq·L$^{-1}$.",
+    "solution": "\\(0.25 \\times 1000 = 250\\).",
     "solution_steps": [
-      "Step 1: \(meq/L = N×1000\\).",
-      "Step 2: \(0.25×1000 = 250\\)."
+      "Step 1: Multiply.",
+      "Step 2: Answer."
     ]
   },
   {
     "id": "q18",
-    "question": "20.0 mL of 0.02 N solution is diluted to 200.0 mL. Find final normality. (Use (viii))",
+    "question": "20 mL of 0.02 N → 200 mL. Final N?",
     "options": {
       "A": "0.002 N",
       "B": "0.0002 N",
@@ -392,15 +676,15 @@ const Q = [
       "D": "0.0020 N"
     },
     "answer": "D",
-    "solution": "From (viii): \\(N_2 = N_1V_1/V_2 = 0.02×0.020/0.200 = 0.0020\\) N.",
+    "solution": "\\(\\frac{0.02 \\times 0.020}{0.200} = 0.0020\\).",
     "solution_steps": [
-      "Step 1: \(0.02×0.020=0.0004\\).",
-      "Step 2: \(0.0004/0.200=0.0020\\) N."
+      "Step 1: Multiply.",
+      "Step 2: Divide."
     ]
   },
   {
     "id": "q19",
-    "question": "100 mL of 1.0 N acid is diluted with 400 mL water. Find the resulting normality.",
+    "question": "100 mL of 1.0 N diluted with 400 mL water. Find N.",
     "options": {
       "A": "0.20 N",
       "B": "0.25 N",
@@ -408,15 +692,15 @@ const Q = [
       "D": "0.10 N"
     },
     "answer": "A",
-    "solution": "Eq = 1.0×0.100=0.100; total V=0.500 L; N=0.100/0.500=0.20 N.",
+    "solution": "\\(\\frac{0.100}{0.500} = 0.20\\).",
     "solution_steps": [
-      "Step 1: \(E=1.0×0.100=0.100\\).",
-      "Step 2: \(N=0.100/0.500=0.20\\) N."
+      "Step 1: Total volume.",
+      "Step 2: Divide."
     ]
   },
   {
     "id": "q20",
-    "question": "15 mL of 2.0 N acid neutralises 30 mL of base. Find the normality of base. (Use (xi))",
+    "question": "15 mL of 2.0 N acid neutralises 30 mL base. Find N.",
     "options": {
       "A": "1.0 N",
       "B": "2.0 N",
@@ -424,16 +708,13 @@ const Q = [
       "D": "4.0 N"
     },
     "answer": "A",
-    "solution": "Using (xi): \\(N_1V_1 = N_2V_2\\). \\(N_2 = (2.0×15)/(30) = 1.0\\) N.",
+    "solution": "\\(\\frac{2.0 \\times 15}{30} = 1.0\\).",
     "solution_steps": [
-      "Step 1: Substitute \\(N_2 = (2.0×15)/(30)\\).",
-      "Step 2: \(=1.0\\) N."
+      "Step 1: Apply formula.",
+      "Step 2: Solve."
     ]
   }
-]
-
-;
-
+];
 
 
 let student = '';
@@ -461,6 +742,50 @@ function buildQuestions() {
 
   Q.forEach((q, index) => {
     const qText = q.text || q.question || q.prompt || ''; // tolerate different keys
+	
+	// Fill in the blank question
+if (q.type === "fill") {
+
+  const blanksHTML = q.blanks.map((b,i)=>`
+  <input type="text" 
+    data-q="${q.id}" 
+    data-i="${i}" 
+    class="fill-input"
+    placeholder="1"
+    style="width:60px;padding:4px;margin:4px;"
+    oninput="enableSubmit('${q.id}')">
+  ${b.replace("___","")}
+`).join(" + ");
+
+  out.insertAdjacentHTML('beforeend', `
+    <div class="question" id="${q.id}-wrap">
+      <h3>Q${index+1}. ${qText}</h3>
+
+      <div style="margin:10px 0;font-size:18px">
+        ${blanksHTML}
+      </div>
+
+      <div id="${q.id}-buttons">
+        <button id="sub-${q.id}" class="submit-button" disabled onclick="gradeFill('${q.id}')">Submit</button>
+        <button class="dontknow-button" onclick="skip('${q.id}')">I Don’t Know</button>
+      </div>
+
+      <button class="toggle-button" id="btn-sol-${q.id}" style="display:none;" onclick="toggleSolution('sol-${q.id}')">Show Solution</button>
+
+    <div class="solution" id="sol-${q.id}">
+  <strong>Solution:</strong> ${q.solution || ''}
+  ${
+    q.solution_steps && q.solution_steps.length
+      ? "<ul style='margin-top:8px;'>" +
+        q.solution_steps.map(s => `<li>${s}</li>`).join("") +
+        "</ul>"
+      : ""
+  }
+</div>
+  `);
+
+  return;
+}
 
     // Normalize options into an ordered array of [letter, optionText]
     let entries = [];
@@ -524,10 +849,28 @@ if (q.solution_steps && Array.isArray(q.solution_steps) && q.solution_steps.leng
 
 function enableSubmit(qid) { document.getElementById(`sub-${qid}`).disabled = false; }
 
+
+function getCorrectLetter(q) {
+  let ans = q.correct || q.answer || q.key || q.correctAnswer;
+
+  // If answer is a number like "2"
+  if (!isNaN(ans)) {
+    return String.fromCharCode(65 + Number(ans) - 1);
+  }
+
+  // If answer is already A/B/C/D
+  return ans;
+}
+
+
 function grade(qid) {
   const q = Q.find(x => x.id === qid);
   // accept different possible field names for the correct answer
-  const correct = q.correct || q.answer || q.key || q.correctAnswer;
+  
+  
+const correct = getCorrectLetter(q);
+
+
   const chosen = document.querySelector(`input[name="${qid}"]:checked`);
   if (!chosen) return;
 
@@ -574,6 +917,42 @@ function grade(qid) {
 }
 
 
+
+
+
+function gradeFill(qid){
+
+  const q = Q.find(x=>x.id===qid);
+
+  const inputs = document.querySelectorAll(`input[data-q="${qid}"]`);
+
+  let correct = true;
+
+  inputs.forEach((inp,i)=>{
+    let user = inp.value.trim();
+if(user === "") user = "1";
+    const ans = q.answer[i];
+
+    if(user === ans){
+      inp.style.background = "#28a745";
+      inp.style.color = "#fff";
+    }else{
+      inp.style.background = "#dc3545";
+      inp.style.color = "#fff";
+      correct = false;
+    }
+
+    inp.disabled = true;
+  });
+
+  document.getElementById(`${qid}-buttons`).style.display="none";
+
+  document.getElementById(`sol-${qid}`).style.display="block";
+}
+
+
+
+
 function skip(qid) { document.querySelectorAll(`input[name="${qid}"]`).forEach(r => r.disabled = true); showSolutionButton(qid); }
 function showSolutionButton(qid) { document.getElementById(`btn-sol-${qid}`).style.display = 'inline-block'; document.getElementById(`${qid}-buttons`).style.display = 'none'; }
 function toggleSolution(id) { const elem = document.getElementById(id); elem.style.display = elem.style.display === 'block' ? 'none' : 'block'; }
@@ -595,15 +974,43 @@ function finalSubmit() {
   let detailHTML = '';
 
   Q.forEach((q, index) => {
-    const checked = document.querySelector(`input[name="${q.id}"]:checked`);
-    const chosen = checked ? checked.value : null;
+ let chosen = null;
+let correctLetter = "";
 
-    const correctLetter = q.correct || q.answer || q.key || q.correctAnswer;
+// ===== Handle FILL questions =====
+if(q.type === "fill"){
+
+  const inputs = document.querySelectorAll(`input[data-q="${q.id}"]`);
+
+  let userAnswers = [];
+
+  inputs.forEach(inp=>{
+    let v = inp.value.trim();
+    if(v === "") v = "1";   // blank = coefficient 1
+    userAnswers.push(v);
+  });
+
+  chosen = userAnswers.join(",");
+
+  correctLetter = q.answer.join(",");
+
+}else{
+
+  // ===== Handle MCQ questions =====
+  const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+  chosen = checked ? checked.value : null;
+  correctLetter = getCorrectLetter(q);
+
+}
+	
+	
+	
+	
 
     let marks = 0;
     let resultText = "";
 
-    if (chosen === null) {
+if (chosen === null || chosen === "") {
       marks = 0;
       resultText = "⚪ Not Attempted / I Don’t Know (0)";
     } else if (chosen === correctLetter) {
@@ -676,7 +1083,7 @@ window.addEventListener('afterprint', () => { document.querySelector("#questions
 
 
 document.getElementById("shareWhatsappBtn").addEventListener("click", function () {
-  const whatsappNumber = "9108069409455";
+  const whatsappNumber = "916003582005";
 
   if (!student) {
     alert("Please complete the quiz first.");
@@ -695,7 +1102,14 @@ document.getElementById("shareWhatsappBtn").addEventListener("click", function (
     const qNum = i + 1;
     const checked = document.querySelector(`input[name="${q.id}"]:checked`);
     let userAns = checked ? checked.value : null;
-    const correctAns = q.correct || q.answer || q.key || q.correctAnswer;
+	
+	
+	
+	
+	
+const correctAns = getCorrectLetter(q);
+	
+	
 
     let marks = 0;
     let resultText = "";
@@ -738,7 +1152,7 @@ closeReport.onclick = () => { reportModal.style.display = "none"; reportMsg.valu
 sendReport.onclick = () => {
   const msg = reportMsg.value.trim();
   if (!msg) { alert("Please write your message before sending."); return; }
-  const whatsappNumber = "9108069409455";
+  const whatsappNumber = "916003582005";
   const message = `⚠️ Reported Mistake\n\n📘 Quiz Title: ${quizTitle}\n👤 Student: ${student || "Anonymous"}\n\n📝 Message:\n${msg}`;
   const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   window.open(waUrl, "_blank");
